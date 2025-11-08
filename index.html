@@ -2,212 +2,67 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>T-LEX Tech</title>
-<meta name="theme-color" content="#00b3ff" />
 <link rel="manifest" href="manifest.json" />
-
+<meta name="theme-color" content="#0a0a1a" />
 <style>
-  :root {
-    --bg: #03030b;
-    --blue: #00b3ff;
-    --purple: #9b5cff;
-    --text: #e6f7ff;
+  :root{--blue:#00b3ff;--purple:#9b5cff;--text:#e6f7ff;}
+  body{
+    margin:0;min-height:100vh;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;background:#03030b;
+    font-family:Poppins,sans-serif;color:var(--text);overflow:hidden;
   }
-
-  body {
-    margin: 0;
-    height: 100vh;
-    background: radial-gradient(circle at 20% 30%, rgba(0,179,255,0.08), transparent 70%),
-                radial-gradient(circle at 80% 70%, rgba(155,92,255,0.08), transparent 70%),
-                linear-gradient(180deg, #01020a 0%, #070414 100%);
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    overflow: hidden;
-    color: var(--text);
-  }
-
-  .logo {
-    font-size: 64px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    margin-bottom: 40px;
-    user-select: none;
-    text-shadow: 0 0 12px var(--blue), 0 0 24px var(--purple);
-    animation: pulse 2s infinite alternate;
-  }
-
-  @keyframes pulse {
-    from { text-shadow: 0 0 12px var(--blue), 0 0 24px var(--purple); }
-    to { text-shadow: 0 0 20px var(--purple), 0 0 40px var(--blue); }
-  }
-
-  .search-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .input-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 50px;
-    padding: 10px 20px;
-    box-shadow: 0 0 15px rgba(0,179,255,0.3);
-    transition: all 0.3s ease;
-  }
-
-  .input-row:focus-within {
-    box-shadow: 0 0 25px rgba(0,179,255,0.7), 0 0 40px rgba(155,92,255,0.5);
-    transform: scale(1.03);
-  }
-
-  .search-input {
-    width: 340px;
-    padding: 12px;
-    border: none;
-    outline: none;
-    background: transparent;
-    color: var(--text);
-    font-size: 18px;
-  }
-
-  .mic-btn {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    outline: none;
-  }
-
-  .mic-btn svg {
-    height: 24px;
-    width: 24px;
-    color: var(--blue);
-    filter: drop-shadow(0 0 6px var(--purple));
-    transition: transform 0.2s ease;
-  }
-
-  .mic-btn:hover svg {
-    transform: scale(1.2);
-    color: var(--purple);
-  }
-
-  .search-btn {
-    background: linear-gradient(90deg, var(--blue), var(--purple));
-    color: white;
-    font-weight: 600;
-    padding: 14px 26px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 16px;
-    box-shadow: 0 0 15px rgba(0,179,255,0.4), 0 0 25px rgba(155,92,255,0.3);
-    transition: all 0.25s ease;
-  }
-
-  .search-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 25px rgba(0,179,255,0.8), 0 0 45px rgba(155,92,255,0.6);
-  }
-
-  footer {
-    position: absolute;
-    bottom: 18px;
-    text-align: center;
-    font-size: 14px;
-    color: rgba(230, 247, 255, 0.7);
-  }
-
-  /* Particles */
-  .particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: radial-gradient(circle, rgba(255,255,255,0.8), transparent);
-    border-radius: 50%;
-    opacity: 0.08;
-    animation: float 12s linear infinite;
-  }
-
-  @keyframes float {
-    from { transform: translateY(100vh) scale(0.6); }
-    to { transform: translateY(-20vh) scale(1.1); }
+  .logo{font-size:52px;font-weight:800;text-shadow:0 0 15px var(--blue),0 0 25px var(--purple);
+         animation:pulse 2s infinite alternate;margin-bottom:40px;}
+  @keyframes pulse{from{text-shadow:0 0 15px var(--blue);}to{text-shadow:0 0 25px var(--purple);}}
+  .search-box{width:85%;max-width:400px;background:rgba(255,255,255,0.05);
+              border-radius:50px;padding:12px 20px;display:flex;align-items:center;
+              box-shadow:0 0 15px rgba(0,179,255,0.3);}
+  input{flex:1;background:transparent;border:none;outline:none;color:var(--text);
+        font-size:18px;padding:8px;}
+  .mic{background:none;border:none;color:var(--blue);font-size:22px;margin-left:6px;}
+  button.search-btn{margin-top:20px;padding:14px 26px;font-size:16px;border:none;
+    border-radius:12px;color:#fff;background:linear-gradient(90deg,var(--blue),var(--purple));
+    box-shadow:0 0 20px rgba(0,179,255,0.6);transition:.3s;}
+  button.search-btn:active{transform:scale(0.97);}
+  footer{position:absolute;bottom:12px;font-size:13px;opacity:.7;text-align:center;}
+  @media(max-width:500px){
+    .logo{font-size:42px;}
+    input{font-size:16px;}
   }
 </style>
 </head>
 <body>
-  <div class="logo">
-    <span style="color: var(--blue);">T</span>-
-    <span style="color: var(--purple);">LEX</span>
+  <div class="logo">T-LEX</div>
+
+  <div class="search-box">
+    <input id="query" type="text" placeholder="Search T-LEX or type a URL" />
+    <button id="mic" class="mic" title="Voice Search">🎤</button>
   </div>
 
-  <div class="search-container">
-    <div class="input-row">
-      <input type="text" id="searchInput" class="search-input" placeholder="Search T-LEX or type a URL">
-      <button class="mic-btn" id="micBtn" title="Voice Search">
-        🎤
-      </button>
-      <br>
-      <br>
-    </div>
-    <button id="searchBtn" class="search-btn">T-LEX Search</button>
-  </div>
+  <button id="go" class="search-btn">Search</button>
 
-  <footer>© 2025 T-LEX · Designed by Nyeko Travis</footer>
+  <footer>© 2025 Nyeko Travis · T-LEX Tech</footer>
 
-  <script>
-    // Floating particles
-    for (let i = 0; i < 40; i++) {
-      const p = document.createElement('div');
-      p.className = 'particle';
-      p.style.left = Math.random() * 100 + 'vw';
-      p.style.animationDelay = Math.random() * -12 + 's';
-      p.style.animationDuration = 8 + Math.random() * 10 + 's';
-      p.style.width = p.style.height = (2 + Math.random() * 3) + 'px';
-      document.body.appendChild(p);
-    }
+<script>
+const q=document.getElementById('query'),go=document.getElementById('go'),mic=document.getElementById('mic');
+function search(){
+  const v=q.value.trim();
+  if(v) location.href=`https://www.google.com/search?q=${encodeURIComponent(v)}`;
+}
+go.onclick=search;
+q.onkeydown=e=>e.key==="Enter"&&search();
 
-    const input = document.getElementById('searchInput');
-    const btn = document.getElementById('searchBtn');
-    const mic = document.getElementById('micBtn');
+if('webkitSpeechRecognition'in window){
+ const r=new webkitSpeechRecognition();
+ r.lang='en-US';r.onresult=e=>{q.value=e.results[0][0].transcript;search();};
+ mic.onclick=()=>r.start();
+}else mic.style.display='none';
 
-    function search() {
-      const q = input.value.trim();
-      if (!q) return;
-      window.location.href = 'https://www.google.com/search?q=' + encodeURIComponent(q);
-    }
-
-    btn.addEventListener('click', search);
-    input.addEventListener('keydown', e => e.key === 'Enter' && search());
-
-    // Voice recognition (if supported)
-    if ('webkitSpeechRecognition' in window) {
-      const recognition = new webkitSpeechRecognition();
-      recognition.continuous = false;
-      recognition.lang = 'en-US';
-      recognition.interimResults = false;
-
-      mic.onclick = () => {
-        recognition.start();
-        mic.innerHTML = "🎙️";
-      };
-
-      recognition.onresult = (event) => {
-        input.value = event.results[0][0].transcript;
-        mic.innerHTML = "🎤";
-        search();
-      };
-
-      recognition.onerror = () => mic.innerHTML = "🎤";
-    } else {
-      mic.style.display = 'none';
-    }
-  </script>
+if('serviceWorker'in navigator){
+  navigator.serviceWorker.register('sw.js');
+}
+</script>
 </body>
 </html>
