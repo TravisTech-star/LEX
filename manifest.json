@@ -1,15 +1,12 @@
 {
-  "name": "Nyeko Search",
-  "short_name": "Nyeko",
-  "start_url": "index.html",
+  "name": "T-LEX Tech",
+  "short_name": "T-LEX",
+  "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "background_color": "#0a0a1a",
+  "theme_color": "#00b3ff",
   "icons": [
-    {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
-      "sizes": "192x192",
-      "type": "image/png"
-    }
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
   ]
 }
