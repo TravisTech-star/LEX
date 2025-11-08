@@ -1,8 +1,6 @@
-self.addEventListener("install", (event) => {
-  console.log("Nyeko Search service worker installed.");
-  self.skipWaiting();
+self.addEventListener('install', e=>{
+  e.waitUntil(caches.open('tlex-v1').then(c=>c.addAll(['./','./index.html'])));
 });
-
-self.addEventListener("fetch", (event) => {
-  // Network handling placeholder
+self.addEventListener('fetch', e=>{
+  e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)));
 });
